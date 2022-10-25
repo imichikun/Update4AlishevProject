@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Person by ID</title>
+</head>
+<body>
+
+<b>Subject's Name: </b>
+<td th:text="${personModel.getName()}">value</td>
+<br><br>
+
+<b>Subject's Id: </b>
+<td th:text="${personModel.getId()}">value</td>
+<br><br>
+
+<b>Subject's Age: </b>
+<td th:text="${personModel.getAge()}">value</td>
+<br><br>
+
+<b>Subject's Email: </b>
+<td th:text="${personModel.getEmail()}">value</td>
+<br><br>
+
+                                                    <!--Альтернативный вариант вывода информации (вертикально)-->
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>Name</th><th></th>  <th>ID</th><th></th>    <th>Age</th><th></th><th></th>  <th>Email</th>-->
+<!--    </tr>-->
+
+<!--    <tr>-->
+<!--        <td th:text="${personModel.getName()}">value</td>-->
+<!--        <td></td>-->
+<!--        <td th:text="${personModel.getId()}">value</td>-->
+<!--        <td></td>-->
+<!--        <td th:text="${personModel.getAge()}">value</td>-->
+<!--        <td></td><td></td>-->
+<!--        <td th:text="${personModel.getEmail()}">value</td>-->
+<!--        <td></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<br>-->
+
+<table>
+    <tr>
+        <form th:method="PUT" th:action="@{/{id}(id=${personModel.getId()})}">
+            <input type="submit" value="Update Person">
+        </form>
+
+        <form th:method="DELETE" th:action="@{/{id}(id=${personModel.getId()})}">
+            <input type="submit" value="Delete Person">
+        </form>
+    </tr>
+</table>
+
+</body>
+</html>

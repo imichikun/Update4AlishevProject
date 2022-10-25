@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Starting page</title>
+</head>
+<body>
+Starting page, hello !
+<br>
+
+<div th:each="personVar : ${peopleAll}">
+    <br>
+    <a th:href="@{/{id}(id=${personVar.getId()})}" th:text="${personVar.getName()}">user</a>
+</div>
+<br>
+
+<form th:method="GET" th:action="@{/new}">
+    <input type="submit" value="Add Person">
+</form>
+
+</body>
+</html>
